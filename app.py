@@ -177,7 +177,7 @@ def profile():
     db = get_db()
     search = f"%{session['user_name']}%"
     names = db.execute("SELECT username FROM fees_paid WHERE username LIKE ?", (search,)).fetchall()
-    data = db.execute("SELECT * FROM personal_info WHERE id = ?", (session["user_id"],)).fetchone()
+    data = db.execute("SELECT * FROM personal_info WHERE id = ?", (session["user_id"],)).fetchall()
     if not data:
         return redirect("/info")
     return render_template("profile.html", data=data, names=names)
