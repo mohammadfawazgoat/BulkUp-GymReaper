@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+<div class="container py-5 text-center">
+    <h2>Login</h2>
+    <div class ="abox">
+        <form action = "/login" method = "POST">
+            <div class = "mb-3">
+                <input id = "a" autocomplete = "off" class="form-control mx-auto w-auto" name ="Name" placeholder = "Name" type = "text">
+            </div>
+            <div class = "mb-3">
+                <input id = "c" autocomplete = "off" class="form-control mx-auto w-auto" name ="Password" placeholder = "Password" type = "password">
+            </div>
+            <button id = "bt" class = "btn btn-primary" type = "submit">Login</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Personal Info
+{% endblock %}
+
+{% block main %}
+<style>
+    body{
+        background:linear-gradient(to bottom,#000000,#260000,#990000);
+    }
+</style>
+<div class="container py-5 text-center">
+    <h2>Personal Info</h2>
+    <div class ="personalbox">
+        <form action = "/info" method = "POST">
+            <div class="bi">
+            <h4>BASIC INFO</h4>
+            </div>
+            <div class = "nm">
+                <h6 class = "mn">Name</h6>
+            <div class = "mb-3">
+                <input id= "mmb" autocomplete = "off" class="form-control mx-auto w-auto" name ="Name"  type = "text">
+            </div>
+            </div>
+            <div class = "nmm">
+                <div id = "nnname">
+                <h6 class = "mn">Age</h6>
+                <h6 id ="aaaa">Gender</h6>
+                </div>
+            <div id ="mcb">
+            <div class = "mb-3">
+                <input id = "mkb" autocomplete = "off" class="form-control mx-auto w-auto" name ="age"  type = "number">
+            </div>
+            <input id="rdo" type = "radio" name = "gender" value = "male">
+            <h6 id = "mle">Male</h6>
+            <input id = "rdo2" type= "radio" name = "gender" value= "female">
+            <h6 id = "fem">Female</h6>
+            </div>
+            </div>
+            <div class = "nmm">
+                <div id = "nnname">
+                <h6 class = "mn">Height</h6>
+                <h6 id ="aaaaa">Weight</h6>
+                </div>
+                <div id="mcbc">
+                    <div class = "mb-3">
+                    <input id = "mkbk" autocomplete = "off" class="form-control mx-auto w-auto" name ="height"  type = "number" placeholder = "cm">
+                    </div>
+                    <div class = "mb-3">
+                    <input id = "weight" autocomplete = "off" class="form-control mx-auto w-auto" name ="weight"  type = "number" placeholder = "kg">
+                    </div>
+                </div>
+            </div>
+            <div class="bi">
+            <h4>FITNESS GOAL</h4>
+            </div>
+            <div class = "ffgoal">
+                <div class = "fitnessgoalbutton">
+                    <input id="b1" type = "radio" name = "fitnessgoal" value = "Lose Weight">
+                    <div>
+                        <h6 class= "actype">Lose Weight</h6>
+                    </div>
+                    <input id="b1" type = "radio" name = "fitnessgoal" value = "Build Muscle">
+                    <div>
+                        <h6 class= "actype">Build Muscle</h6>
+                    </div>
+                    <input id="b1" type = "radio" name = "fitnessgoal" value = "Maintain">
+                    <div>
+                        <h6 class= "actype">Maintain</h6>
+                    </div>
+                </div>
+
+            </div>
+            <div class="bi">
+            <h4>ACTIVITY LEVEL</h4>
+            </div>
+            <div class = "ffgoal">
+                <div class = "fitnessgoalbutton">
+                    <input id="b1" type = "radio" name = "activity" value = "Slightly Active">
+                    <div>
+                        <h6 class= "actype">Slightly Active</h6>
+                    </div>
+                    <input id="b1" type = "radio" name = "activity" value = "Moderately Active">
+                    <div>
+                        <h6 class= "actype">Moderately Active</h6>
+                    </div>
+                    <input id="b1" type = "radio" name = "activity" value = "Very Active">
+                    <div>
+                        <h6 class= "actype">Very Active</h6>
+                    </div>
+                </div>
+
+            </div>
+            <button id = "bt" class = "btn btn-primary" type = "submit">Save</button>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

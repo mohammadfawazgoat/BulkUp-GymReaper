@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+<div class = "bdy">
+    <div class = "dhead">
+        <div class = "dihead">
+            <h1>Welcome Back, {{session["user_name"]}}!</h1>
+        </div>
+    </div>
+    <h2 id = "hell">Quick Status</h2>
+    <div class = "cont">
+        <div class = "qs">
+            <div class = "scard">
+                <h3>Workouts Done</h3>
+                <p>{{track}}</p>
+            </div>
+            <div class = "scard">
+                <h3>Calories Burnt</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class = "scard">
+                <h3>Calorie Intake</h3>
+                <p>Coming Soon</p>
+            </div>
+        </div>
+    <div class = "stct">
+        <h2>Shortcuts</h2>
+        <a href = "/workout_tracker">
+        <div class = "sbtr">
+            Workout Tracker
+        </div></a>
+        <a href = "/diet_Tracker">
+        <div class = "sbtr">
+            Diet Tracker
+        </div></a>
+        <a href = "/progress">
+        <div class = "sbtr">
+            Progress Chart
+        </div></a>
+    </div>
+    </div>
+    <div class = "quote">
+        <div class = "quote_container" id = "quote_container">
+
+        </div>
+    </div>
+</div>
+<script>
+    const quotes = [ "No pain, no gain.","Push yourself, because no one else is going to do it for you.",
+    "Fitness is not about being better than someone else. It's about being better than you used to be.",
+    "Your body can stand almost anything. It’s your mind that you have to convince.",
+    "Success starts with self-discipline."];
+
+    const randomindex = Math.floor(Math.random()*quotes.length);
+    const quotebox = document.getElementById("quote_container");
+    quotebox.innerHTML = quotes[randomindex];
+
+</script>
+{% endblock %}
+

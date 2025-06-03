@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout History
+{% endblock %}
+
+{% block main %}
+    <style>
+        body{
+            background:linear-gradient(to bottom, #000000,#260000,#5C0100);
+        }
+    </style>
+
+    <div class = "history">
+        <div id = "ssss">
+        <input type = "text" id = "search" placeholder = "Exercise Name">
+        </div>
+    <table id = "history-table">
+        <tr class = "mb-3">
+            <th>Date</th>
+            <th>Exercise</th>
+            <th>Set</th>
+            <th>Reps</th>
+            <th>Weight</th>
+        </tr>
+        {% for hist in history %}
+        <tr>
+            <td>{{hist.date}}</td>
+            <td>{{hist.exercise}}</td>
+            <td>{{hist.sets}}</td>
+            <td>{{hist.reps}}</td>
+            <td>{{hist.weight}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+    <script>
+        const rows = document.querySelectorAll("#history-table tr:not(:first-child)");
+        const dategroups = {};
+        const colors = ["#1e1e1e","#2a2a2a","#3a3a3a","#4a4a4a","#5a5a5a","#6a1b1b","7b1f1f","#8b2323","#9c2727","#ad2b2b"];
+        let colorindex = 0;
+        rows.forEach(row => {
+            const date = row.children[0].textContent;
+            if(!dategroups[date]){
+                dategroups[date] = colors[colorindex % colors.length];
+                colorindex++;
+            }
+            row.style.backgroundColor = dategroups[date];
+            })
+            const search = document.getElementById("search");
+            search.addEventListener('keyup', function(){
+                const query = search.value.toLowerCase();
+                rows.forEach(row =>{
+                    const exercise = row.children[1].textContent.toLowerCase();
+                    if(exercise.includes(query)){
+                        row.style.display = "";
+                    }
+                    else{
+                        row.style.display = "none";
+                    }
+                })
+            })
+    </script>
+
+{% endblock %}

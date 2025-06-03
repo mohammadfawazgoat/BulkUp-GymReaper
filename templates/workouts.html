@@ -1,0 +1,274 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workouts
+{% endblock %}
+
+{% block main %}
+    <style>
+        body{
+            background:linear-gradient(to bottom, #000000,#260000,#5C0100);
+        }
+
+    </style>
+    <h1 id = "h">Choose Your Training Style</h1>
+    <p id = "p">Understand the best splits and find what suits your lifestyle</p>
+    <div class = "splitbox_container">
+        <div class = "workout_container">
+            <h2>Push Pull Legs(PPL)</h2>
+            <h3>Overview</h3>
+            <p>A workout regimen dividing body workouts into three sessions for pushing, pulling and legs:</p>
+            <h3>Features</h3>
+            <div class = "frequency-item">
+                <i class = "fas fa-calendar-alt"></i>  Frequency: 6 Days A Week.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-heart-pulse"></i> Focus: Balanced, Hypertrophy And Recovery.
+            </div>
+            <h3>Pros</h3>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-thumbs-up"></i> More Frequent Muscle Hits.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-clock"></i> Easy To Customize.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-arrows-rotate"></i> More Frequent Muscle Hits.
+            </div>
+
+        </div>
+        <div class = "workout_container">
+            <h2>Full Body</h2>
+            <h3>Overview</h3>
+            <p>Incorporates all major muscle groups in a single session performed multiple times a week:</p>
+            <h3>Features</h3>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-circle-exclamation"></i>  Frequency: 2/3 Days A Week.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-rocket"></i> Focus: Efficient For Strength And Fitness.
+            </div>
+            <h3>Pros</h3>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-location-arrow"></i> Great For Busy Schedules.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-droplet"></i> High Calorie Burn.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-user-minus"></i> Less Focus Per Muscle.
+            </div>
+        </div>
+        <div class = "workout_container">
+            <h2>Bro Split</h2>
+            <h3>Overview</h3>
+            <p>Traditional bodybuilding split targeting specific muscle groups each workout day of the week:</p>
+            <h3>Features</h3>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-calendar-week"></i>  Frequency: 5/6 Days A Week.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-dumbbell"></i> Focus: Dedicated Sessions Per Muscle Group.
+            </div>
+            <h3>Pros</h3>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-up-down-left-right"></i> High Muscle Isolation.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-face-smile"></i> Simple To Follow.
+            </div>
+            <div class = "frequency-item">
+                <i class="fa-solid fa-baby"></i> Great For Newbies.
+            </div>
+        </div>
+    </div>
+    <div class = "quiz">
+        <h1 >Not Sure Which Workout Split To Choose</h1>
+        <h2>Hit The Button Below</h2>
+        <div id = "al">
+        <div id = "qbutton">
+            Click Here
+        </div>
+        </div>
+        <div id = "quizcont">
+            <div class = "questions">
+                <p>Q1: How many days can you commit to training per week ?</p>
+                <div class = "question-group">
+                <div id = "lessthanthree" class = "quizbutton">
+                    <p >3 or fewer</p>
+                </div>
+                <div id = "fourtofive" class = "quizbutton">
+                    <p>4-5</p>
+                </div>
+                <div id = "sixtoseven" class = "quizbutton">
+                    <p>6-7</p>
+                </div>
+                </div>
+            </div>
+            <div class = "questions">
+                <p>Q2: Whats your current fitness level ?</p>
+                <div class = "question-group">
+                <div id  = "beginner" class = "quizbutton">
+                    <p>Beginner</p>
+                </div>
+                <div id = "inter" class = "quizbutton">
+                    <p>Intermediate</p>
+                </div>
+                <div id = "adv" class = "quizbutton">
+                    <p>Advanced</p>
+                </div>
+                </div>
+
+            </div>
+            <div class = "questions">
+                <p>Q3: Whats your Overall goal in fitness ?</p>
+                <div class = "question-group">
+                <div id="ovr" class = "quizbutton">
+                    <p>Build overall fitness</p>
+                </div>
+                <div id = "gm"class = "quizbutton">
+                    <p>Gain muscle</p>
+                </div>
+                <div id ="ia" class = "quizbutton">
+                    <p>Improve aesthetics</p>
+                </div>
+                </div>
+
+            </div>
+            <div class = "questions">
+                <p>Q3: Do you prefer training fewer muscle groups per day ?</p>
+                <div class = "question-group">
+                <div id = "fe"class = "quizbutton">
+                    <p>Fewer</p>
+                </div>
+                <div id ="ffb"class = "quizbutton">
+                    <p>Full Body</p>
+                </div>
+                <div id ="an"class = "quizbutton">
+                    <p>Anything</p>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class = "abc">
+    <div id = "qqqbox">
+
+    </div>
+    </div>
+    <script>
+        splitbox = document.getElementById("qqqbox");
+        let questionsans = 0;
+        let ppl = 0;
+        let bs = 0;
+        let fb = 0;
+        button = document.getElementById('qbutton');
+        box = document.getElementById("quizcont");
+        buttons = document.querySelectorAll(".quizbutton");
+        button.addEventListener('click', function(){
+            box.style.visibility = "visible" ;
+        });
+
+
+        buttons = document.querySelectorAll(".quizbutton");
+        buttons.forEach(button =>{
+            button.addEventListener('click', function(event){
+                event.currentTarget.style.backgroundColor = "#000000";
+                let parent = event.currentTarget.parentElement;
+                let siblings = parent.querySelectorAll('.quizbutton');
+                siblings.forEach(sib => {
+                    sib.style.pointerEvents = "none";
+                    sib.style.opacity = "0.6";
+                });
+
+                if(event.currentTarget.id == "lessthanthree"){
+                    fb+=1;
+                    questionsans+=1;
+
+                }
+                else if(event.currentTarget.id == "fourtofive"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+                else if(event.currentTarget.id == "sixtoseven"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+
+
+                if(event.currentTarget.id == "beginner"){
+                    bs+=1;
+                    questionsans+=1;
+
+                }
+                else if(event.currentTarget.id == "inter"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+                else if(event.currentTarget.id == "adv"){
+
+                    fb +=1;
+                    questionsans+=1;
+                }
+
+                if(event.currentTarget.id == "ovr"){
+                    fb+=1;
+                    questionsans+=1;
+
+                }
+                else if(event.currentTarget.id == "gm"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+                else if(event.currentTarget.id == "ia"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+                if(event.currentTarget.id == "fe"){
+                    bs+=1;
+                    questionsans+=1;
+
+                }
+                else if(event.currentTarget.id == "ffb"){
+
+                    fb +=1;
+                    questionsans+=1;
+                }
+                else if(event.currentTarget.id == "an"){
+
+                    ppl +=1;
+                    questionsans+=1;
+                }
+                if(questionsans == 4){
+                    if(ppl > fb && ppl > bs){
+                   splitbox.style.visibility = "visible" ;
+                   splitbox.innerHTML = "Push Pull Legs";
+                 }
+                 else if(fb > ppl && fb > bs){
+                    splitbox.style.visibility = "visible" ;
+                    splitbox.innerHTML = "Full Body";
+                 }
+                 else if(bs > fb && bs > ppl){
+                    splitbox.style.visibility = "visible" ;
+                    splitbox.innerHTML = "Bro Split";
+                 }
+                 else{
+                    const splits= ["push pull legs","Bro split", "Full body"];
+                    const randomindex = Math.floor(Math.random()*splits.length);
+                    const randomsplit = splits[randomindex];
+                    splitbox.style.visibility = "visible" ;
+                    splitbox.innerHTML = randomsplit;
+                 }
+                }
+
+            })
+        })
+
+    </script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Progress
+{% endblock %}
+
+{% block main %}
+    <style>
+        body{
+                background:linear-gradient(to bottom,#000000,#000000,#990000);
+
+        }
+    </style>
+    <div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: {{labels|tojson}},
+      datasets: [{
+        label: 'calories',
+        data: {{calories|tojson}},
+        borderWidth: 1
+      }, {
+        label:'Workouts',
+        data: {{workouts|tojson}},
+        borderWidth:1
+      }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+{% endblock %}

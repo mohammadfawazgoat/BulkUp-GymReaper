@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Fee Status
+{% endblock %}
+
+{% block main %}
+    <Style>
+        body{
+            background: linear-gradient(to bottom, #000000, #260000, #5C0100);
+            text-align:center;
+        }
+        h2{
+            margin-top:2rem;
+        }
+        .users{
+            border-radius:5px;
+            background-color:black;
+            color:white;
+            border:1px solid white;
+        }
+        button{
+            background-color:#3d3d3d;
+            color:white;
+            border:1px solid black;
+            border-radius:5px;
+
+        }
+
+        button:hover{
+            transform:scale(1.1);
+            background-color:#636363;
+        }
+        h3{
+            margin-top:3rem;
+            color:White;
+        }
+        table{
+            width:60%;
+            margin:auto;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+        td{
+            color:white;
+            background-color:black;
+        }
+    </Style>
+
+    <h3><b>Fees Status</b></h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Usernames</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in name %}
+                <tr>
+                    <td>{{user.username}}</td>
+                    <td>Paid</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+    <Style>
+        body{
+            background: linear-gradient(to bottom, #000000, #260000, #5C0100);
+            text-align:center;
+        }
+        h2{
+            margin-top:2rem;
+        }
+        .users{
+            border-radius:5px;
+            background-color:black;
+            color:white;
+            border:1px solid white;
+        }
+        button{
+            background-color:#3d3d3d;
+            color:white;
+            border:1px solid black;
+            border-radius:5px;
+
+        }
+
+        button:hover{
+            transform:scale(1.1);
+            background-color:#636363;
+        }
+        h3{
+            margin-top:3rem;
+            color:White;
+        }
+        table{
+            width:60%;
+            margin:auto;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+    </Style>
+    <h2>Enter names of users who paid fees</h2>
+    <form method = "POST">
+        <input class = "users" placeholder = "Name" name = "paidusers" type = "text" autocomplete = "off">
+        <button type = "submit">Submit</button>
+    </form>
+
+
+{% endblock %}

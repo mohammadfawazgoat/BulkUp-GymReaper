@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+    <style>
+        body{
+            background:linear-gradient(to bottom, #000000,#260000,#5C0100);
+            text-align:center;
+        }
+    </style>
+    <h1 id ="profileh1">
+        Hi, {{session["user_name"]}}!
+    </h1>
+    <div id = "ehee">
+    <div class = "personaldata">
+    <p>Based on your data, you are {{data[0]["age"]}} years old, weigh {{data[0]["weight"]}} Kilograms, and stand at {{data[0]["height"]}} centimeters tall. </p>
+    </div>
+    </div>
+    <div class = "yourgoal">
+        <h2 id = "nnnn"> Your Goal: </h2>
+            <h2> {{data[0]["fitness_goal"]}}</h2>
+    </div>
+    <div class = "yourgoal">
+        <h2 id = "nnnn"> Fee Status: </h2>
+        {%if names%}
+            <h2>Paid</h2>
+        {%else%}
+            <h2>Unpaid</h2>
+        {%endif%}
+    </div>
+
+{% endblock %}

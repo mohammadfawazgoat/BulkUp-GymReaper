@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    REGISTER
+{% endblock %}
+
+{% block main %}
+<div class="container py-5 text-center">
+    <h2>Register Below</h2>
+    <div class ="box">
+        <form action = "/register" method = "POST">
+            <div class = "mb-3">
+                <input id = "a" autocomplete = "off" class="form-control mx-auto w-auto" name ="Name" placeholder = "Name" type = "text">
+            </div>
+
+            <div class = "mb-3">
+                <input id = "b" autocomplete = "off" class="form-control mx-auto w-auto" name ="number" placeholder = "Phone Number" pattern = "[0-9]{10}" maxlength = "10">
+            </div>
+            <div class = "mb-3">
+                <input id = "c" autocomplete = "off" class="form-control mx-auto w-auto" name ="Password" placeholder = "Password" type = "password">
+            </div>
+            <div class = "mb-3">
+                <input id = "d" autocomplete = "off" class="form-control mx-auto w-auto" name ="cPassword" placeholder = "Confirm Password" type = "password">
+            </div>
+            <button id = "bt" class = "btn btn-primary" type = "submit">Register</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Diet Tracker
+{% endblock %}
+
+{% block main %}
+    <style>
+        body {
+            background: linear-gradient(to bottom, #000000, #260000, #5C0100);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+    </style>
+    <div class = "dt">
+        <div class = dietcontainer>
+            <div class = "tc">
+                <form id="calories-form">
+                <div>
+                <h1><b>Track Your Diet</b></h1>
+                </div>
+                <div class = "foods">
+                    <h4>Select Food: </h4>
+                    <select id ="food" required>
+                        <option autoselect value = "">Select Food</option>
+                        <option value = "Rice">Rice</option>
+                        <option value = "Eggs">Eggs</option>
+                        <option value = "Chicken">Chicken</option>
+                        <option value = "Milk">Milk</option>
+                        <option value = "Beef">Beef</option>
+                        <option value = "Roti">Roti</option>
+                        <option value = "Tea">Tea</option>
+                        <option value = "Paneer">Paneer</option>
+                        <option value = "Banana">Banana</option>
+                        <option value = "Apple">Apple</option>
+                        <option>More Foods Coming Soon</option>
+                    </select>
+                </div>
+                <div class = "foods">
+                    <h4>Quantity(in grams): </h4>
+                    <input type = "number" id ="quantity" min = "1">
+                </div>
+                <button type = "submit" id = "trackcalo">Track Calories</button>
+                </form>
+                <h2>Calories Tracked</h2>
+                <table id = "calories_table">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Quantity(g)</th>
+                            <th>Calories</th>
+                            <th>Protein</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const caloriesdata = {
+            "Rice":{cal:130,protein:2.7},
+            "Eggs": {cal:155,protein:13},
+            "Chicken": {cal:150,protein:27},
+            "Milk": {cal:60,protein:3.4},
+            "Beef" : {cal:160,protein:26},
+            "Roti":{cal:300,protein:8},
+            "Tea": {cal:50,protein:1},
+            "Paneer": {cal:350,protein:20},
+            "Banana": {cal:110,protein:2},
+            "Apple" : {cal:100,protein:1},
+        }
+
+        document.getElementById("calories-form").addEventListener("submit" ,function(event){
+            event.preventDefault();
+
+            const food = document.getElementById("food").value;
+            const quan = document.getElementById("quantity").value;
+            if(!food || !quan){
+                alert("Please select food and quantity");
+                return;
+            }
+            const caloriesper100g = caloriesdata[food].cal;
+            const proteinper100g = caloriesdata[food].protein;
+            const totalcalories = (caloriesper100g * quan)/100;
+            const totalprotein = (proteinper100g * quan)/100;
+            const newrow = document.createElement("tr");
+            newrow.innerHTML = `
+            <td>${food}</td>
+            <td>${quan}</td>
+            <td>${totalcalories.toFixed(2)}</td>
+            <td>${totalprotein.toFixed(2)}</td>
+            `;
+            document.querySelector("#calories_table tbody").appendChild(newrow);
+            document.getElementById("food").value = "";
+            document.getElementById("quan").value = "";
+        })
+    </script>
+{% endblock %}
