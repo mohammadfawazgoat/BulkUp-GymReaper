@@ -94,4 +94,13 @@ View a list of all users who have paid their fees — no manual registers requir
 
 2. **Navigate to the project directory**
    ```bash
-   BulkUp-GymReaper
+   cd BulkUp-GymReaper
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+4. **Run the App**
+   ```bash
+   set FLASK_APP=app.py
+   flask run
