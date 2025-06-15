@@ -93,4 +93,5 @@ View a list of all users who have paid their fees — no manual registers requir
    git clone https://github.com/YourUsername/BulkUp-GymReaper.git
 
 2. **Navigate to the project directory**
+   ```bash
    BulkUp-GymReaper
